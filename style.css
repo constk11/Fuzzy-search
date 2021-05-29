@@ -1,0 +1,21 @@
+.first-field, .second-field {
+    text-align: center;
+}
+
+.second-field {
+    margin-top: 10px;
+}
+
+.center {
+    text-align: center;
+}
+
+button {
+    height: 50px;
+    width: 200px;
+    margin: 25px 0;
+}
+
+#levenshtein-distance { 
+    text-align: center;
+}
