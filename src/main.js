@@ -1,4 +1,4 @@
-const { calculateLevenshteinDistance } = require('calculate-levenshtein-distance');
+const { selectRelevantItems } = require('calculate-levenshtein-distance');
 
 async function getCities() {
     const response = await fetch('russia.json');
@@ -6,39 +6,22 @@ async function getCities() {
     return cities;
 }
 
-function sortCities(cities) {
-    var sortedCities = cities.slice(0);
-    sortedCities.sort(function(a,b) {
-        return a.distance - b.distance;
-    });
-    return sortedCities;
-}
-
 function showCities(cities, citiesList) {
     cities.forEach(city => {
         let relevantCity = document.createElement('li');
         relevantCity.innerText = city.city;
+        console.log(city);
         citiesList.appendChild(relevantCity);
     });    
 }  
 
 async function findRelevantCities() {
-    const cities = await getCities();
-    let searchedCities = [];        
+    const cities = await getCities();      
     const citiesList = document.getElementById('searched-cities');
     citiesList.innerHTML = '';    
-    if(this.value != '') {                
-        for (let i = 0; i < cities.length; i++) {          
-            const levenshteinDistance = calculateLevenshteinDistance(this.value, cities[i].city);
-            if(levenshteinDistance < 4) {
-                searchedCities.push({
-                    'city' : cities[i].city,
-                    'distance' : levenshteinDistance
-                });
-            }        
-        }
-        const sortedCities = sortCities(searchedCities);
-        showCities(sortedCities, citiesList);
+    if(this.value != '') {                        
+        const searchedCities = selectRelevantItems(cities, 'city', this.value);
+        showCities(searchedCities, citiesList);
     }
 }
 
