@@ -1,4 +1,4 @@
-const { selectRelevantItems } = require('calculate-levenshtein-distance');
+const { selectRelevantItems, calculateLevenshteinDistance } = require('calculate-levenshtein-distance');
 
 async function getCities() {
     const response = await fetch('russia.json');
