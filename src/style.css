@@ -1,0 +1,61 @@
+:root {
+    --background-color: blueviolet;
+    --text-color: rgb(116, 112, 112);
+    --font-size: 18px;
+    --font-family: 'Montserrat', sans-serif;
+    --search-panel-bg-color: #fff;
+    --svg-color: rgb(38, 121, 168);
+}
+
+body, html {
+    background-color: var(--background-color);
+    font-size: var(--font-size);
+    font-family: var(--font-family);
+    color: var(--text-color);
+}
+
+.fuzzy-search {
+    display: flex;
+    width: 500px;
+    height: 50px;
+    margin: 0 auto;
+    margin-top: calc(100vh *0.4);
+    background-color: var(--search-panel-bg-color);
+    padding: 10px 25px;
+    border-radius: 50px;    
+}
+
+.fuzzy-search input {
+    width: 100%;
+    margin-left: 20px;
+    border: none;
+    font-family: var(--font-family);
+    font-size: var(--font-size);
+    color: var(--text-color);
+    outline: none;
+}
+
+#search-icon {
+    width: 30px;
+}
+
+#search-icon path {
+    fill: var(--svg-color);
+}
+
+#searched-cities {
+    width: 445px;
+    margin: 0 auto;    
+}
+
+#searched-cities li {    
+    height: 30px;
+    padding-left: 15px;
+    list-style-type: none;
+    background-color: var(--search-panel-bg-color);    
+}
+
+#searched-cities li:last-child {
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
